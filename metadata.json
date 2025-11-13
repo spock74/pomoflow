@@ -1,0 +1,5 @@
+{
+  "name": "Pomodoro Workflow Meta Planner",
+  "description": "A sophisticated Pomodoro timer integrated with a task and objective management system. Plan your work, execute with focus using the Pomodoro technique, and review your sessions to improve productivity. All data is stored locally in your browser.",
+  "requestFramePermissions": []
+}

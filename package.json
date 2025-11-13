@@ -1,0 +1,20 @@
+{
+  "name": "pomodoro-workflow-app",
+  "version": "1.0.0",
+  "description": "Pomodoro Workflow Planner",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "dexie": "^4.0.7",
+    "dexie-react-hooks": "^1.1.7",
+    "lucide-react": "^0.395.0",
+    "i18next": "^23.11.5",
+    "react-i18next": "^14.1.2",
+    "i18next-browser-languagedetector": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.4.5"
+  }
+}
