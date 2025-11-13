@@ -16,7 +16,7 @@ A técnica é eficaz porque mitiga a fadiga mental associada à **troca de conte
 
 Estudos neurocientíficos apoiam a ideia de que nossos cérebros operam em dois modos: um modo focado (para trabalho profundo) e um modo difuso (para insights criativos e descanso). A técnica Pomodoro facilita a alternância entre esses modos.
 
-- **Artigo Científico:** Um estudo publicado no PMC (PubMed Central) destaca como métodos estruturados de gerenciamento de tempo, como a Técnica Pomodoro, podem melhorar o desempenho acadêmico e reduzir a procrastinação, promovendo a atenção sustentada e gerenciando a carga cognitiva. (Veja: [PMC8838338](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8838338/))
+- **Artigo Científico:** Um estudo publicado no PMC (PubMed Central) destaca como métodos estruturados de gerenciamento de tempo, como a Técnica Pomodoro, podem melhorar o desempenho acadêmico e reduzir a procrastinação, promovendo a atenção sustentada e gerenciando a carga cognitiva. (Fonte ainda por ser colocada)
 
 ---
 

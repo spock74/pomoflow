@@ -1,4 +1,9 @@
 
+export interface IChatMessage {
+  role: 'user' | 'model';
+  parts: { text: string }[];
+}
+
 export interface IObjetivo {
   id?: number;
   data: string;
@@ -8,6 +13,7 @@ export interface IObjetivo {
   n2_passos: string;
   promptsPlanejamento: string;
   promptsExecucao: string;
+  chatHistory?: IChatMessage[];
 }
 
 export interface ITarefa {

@@ -3,14 +3,16 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { useTranslation } from 'react-i18next';
 import { db } from './services/database';
 import { ICurrentTarefa, ITarefa } from './types';
+import { useApiKeyStore } from './store/useApiKeyStore';
 
 import { Header } from './components/Header';
 import { ObjectiveList } from './components/ObjectiveList';
 import { PomodoroReviewModal } from './components/modals/PomodoroReviewModal';
 import { NewObjectiveModal } from './components/modals/NewObjectiveModal';
 import { ExportDataModal } from './components/modals/ExportDataModal';
+import { ApiKeyModal } from './components/modals/ApiKeyModal';
 
-import { BookOpen, Plus, FileDown } from 'lucide-react';
+import { BookOpen, Plus, FileDown, Settings } from 'lucide-react';
 
 export default function App() {
   const { t, i18n } = useTranslation();
@@ -22,6 +24,17 @@ export default function App() {
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [showObjetivoModal, setShowObjetivoModal] = useState(false);
   const [showExportModal, setShowExportModal] = useState(false);
+  const [showApiKeyModal, setShowApiKeyModal] = useState(false);
+  
+  const apiKey = useApiKeyStore((state) => state.apiKey);
+
+  useEffect(() => {
+    // On initial load, check if API key is set.
+    if (!apiKey) {
+      setShowApiKeyModal(true);
+    }
+  }, [apiKey]);
+
 
   useEffect(() => {
     let interval: number;
@@ -124,6 +137,7 @@ export default function App() {
         objetivoAtual={objetivoAtual}
         onPause={handlePause}
         onReset={handleReset}
+        onSettingsClick={() => setShowApiKeyModal(true)}
       />
 
       <main className="flex-1 overflow-y-auto p-4 md:p-8">
@@ -186,6 +200,11 @@ export default function App() {
       {showExportModal && (
         <ExportDataModal
           onClose={() => setShowExportModal(false)}
+        />
+      )}
+      {showApiKeyModal && (
+        <ApiKeyModal
+          onClose={() => setShowApiKeyModal(false)}
         />
       )}
     </div>

@@ -6,6 +6,7 @@ import { InputText } from '../ui/InputText';
 import { InputTextArea } from '../ui/InputTextArea';
 import { X, Plus, Sparkles } from 'lucide-react';
 import { GoogleGenAI, Type } from '@google/genai';
+import { useApiKeyStore } from '../../store/useApiKeyStore';
 
 interface NewObjectiveModalProps {
     onClose: () => void;
@@ -21,8 +22,13 @@ export const NewObjectiveModal: React.FC<NewObjectiveModalProps> = ({ onClose })
     
     const [isGenerating, setIsGenerating] = useState(false);
     const [generationError, setGenerationError] = useState<string | null>(null);
+    const apiKey = useApiKeyStore((state) => state.apiKey);
 
     const handleGeneratePlan = async () => {
+        if (!apiKey) {
+            setGenerationError(t('modals.newObjective.errorApiKeyMissing'));
+            return;
+        }
         if (!nome) {
             setGenerationError(t('modals.newObjective.errorMissingName'));
             return;
@@ -33,14 +39,8 @@ export const NewObjectiveModal: React.FC<NewObjectiveModalProps> = ({ onClose })
         setN2('');
 
         try {
-            const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
-            const prompt = `Gere um plano para o seguinte objetivo: "${nome}".
-    
-            O plano deve conter:
-            1.  **n1_definicao**: Uma definição clara e o escopo do objetivo. O que é e por que é importante? Quais são os critérios de sucesso?
-            2.  **n2_passos**: Os passos conceituais macro para alcançar o objetivo. Liste de 3 a 5 passos principais.
-            
-            Retorne a resposta estritamente como um objeto JSON.`;
+            const ai = new GoogleGenAI({ apiKey });
+            const prompt = t('modals.newObjective.generationPrompt', { objectiveName: nome });
             
             const response = await ai.models.generateContent({
                 model: 'gemini-2.5-flash',
@@ -65,7 +65,6 @@ export const NewObjectiveModal: React.FC<NewObjectiveModalProps> = ({ onClose })
             });
 
             let jsonText = response.text.trim();
-            // Sanitize response by removing potential markdown fences
             if (jsonText.startsWith("```json")) {
                 jsonText = jsonText.substring(7, jsonText.length - 3).trim();
             } else if (jsonText.startsWith("```")) {
@@ -122,7 +121,8 @@ export const NewObjectiveModal: React.FC<NewObjectiveModalProps> = ({ onClose })
                 promptsPlanejamento: promptsP,
                 data: new Date().toISOString(),
                 status: 'planning',
-                promptsExecucao: ''
+                promptsExecucao: '',
+                chatHistory: []
             });
 
             const tarefasParaAdd = tarefas
@@ -150,7 +150,7 @@ export const NewObjectiveModal: React.FC<NewObjectiveModalProps> = ({ onClose })
                     <button 
                         type="button"
                         onClick={handleGeneratePlan}
-                        disabled={isGenerating || !nome}
+                        disabled={isGenerating || !nome || !apiKey}
                         className="absolute top-0 right-0 mt-2 mr-2 flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-xs font-medium text-white rounded-md hover:bg-emerald-500 transition-all disabled:bg-slate-500 disabled:cursor-not-allowed"
                     >
                        {isGenerating ? t('modals.newObjective.generatingButton') : <> <Sparkles size={14} /> {t('modals.newObjective.generateButton')} </>}

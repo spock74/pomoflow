@@ -16,7 +16,7 @@ The technique is effective because it mitigates the mental fatigue associated wi
 
 Neuroscientific studies support the idea that our brains operate in two modes: a focused mode (for deep work) and a diffuse mode (for creative insights and rest). The Pomodoro technique facilitates switching between these modes.
 
-- **Scientific Article:** A study published in the PMC (PubMed Central) highlights how structured time management methods, like the Pomodoro Technique, can improve academic performance and reduce procrastination by promoting sustained attention and managing cognitive load. (See: [PMC8838338](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8838338/))
+- **Scientific Article:** A study published in the PMC (PubMed Central) highlights how structured time management methods, like the Pomodoro Technique, can improve academic performance and reduce procrastination by promoting sustained attention and managing cognitive load. (source to be added)
 
 ---
 

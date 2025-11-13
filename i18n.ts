@@ -30,7 +30,12 @@ const resources = {
         planningPromptsTitle: "Planning",
         planningPromptsPlaceholder: "No planning prompts saved.",
         executionPromptsTitle: "Execution (Take notes here)",
-        executionPromptsPlaceholder: "Paste the execution prompts used here..."
+        executionPromptsPlaceholder: "Paste the execution prompts used here...",
+        aiAssistantTitle: "AI Assistant",
+        aiPlaceholder: "Ask something about this objective...",
+        aiTyping: "Assistant is typing...",
+        aiError: "Sorry, I encountered an error. Please try again.",
+        apiKeyMissing: "Please set your Gemini API key in the settings first."
       },
       modals: {
         pomodoroReview: {
@@ -51,8 +56,16 @@ const resources = {
           objectiveNamePlaceholder: "Ex: Refactor Authentication Module",
           generateButton: "Generate Plan with AI",
           generatingButton: "Generating...",
+          generationPrompt: `Generate a plan for the following objective: "{{objectiveName}}".
+
+The plan must contain:
+1.  **n1_definicao**: A clear definition and scope of the objective. What is it and why is it important? What are the success criteria?
+2.  **n2_passos**: The macro conceptual steps to achieve the objective. List 3 to 5 main steps.
+
+Return the response strictly as a JSON object.`,
           errorPrefix: "Failed to generate plan.",
           errorApiKey: "The API key is not valid. Check your credentials.",
+          errorApiKeyMissing: "Please set your Gemini API key in the settings first.",
           errorTimeout: "The request took too long. Please try again.",
           errorCheckConsole: "Check the console for more details.",
           errorUnknown: "An unknown error occurred.",
@@ -74,6 +87,15 @@ const resources = {
           description: "Your data (Objectives, Tasks, and Pomodoro Metrics) is ready. Save this JSON file for backup or external analysis.",
           downloadButton: "Download JSON File",
           generating: "Generating data..."
+        },
+        apiKey: {
+            title: "Gemini API Key",
+            description: "To use the AI features, please provide your own Google Gemini API key. Your key is stored securely in your browser's local storage and is never sent to us.",
+            getYourKey: "Get your key from Google AI Studio",
+            inputLabel: "Your Gemini API Key",
+            inputPlaceholder: "Paste your API key here",
+            saveButton: "Save Key",
+            removeButton: "Remove Key"
         }
       },
       notifications: {
@@ -111,7 +133,12 @@ const resources = {
         planningPromptsTitle: "Planejamento",
         planningPromptsPlaceholder: "Nenhum prompt de planejamento salvo.",
         executionPromptsTitle: "Execução (Anote aqui)",
-        executionPromptsPlaceholder: "Cole aqui os prompts de execução usados..."
+        executionPromptsPlaceholder: "Cole aqui os prompts de execução usados...",
+        aiAssistantTitle: "Assistente de IA",
+        aiPlaceholder: "Pergunte algo sobre este objetivo...",
+        aiTyping: "Assistente está digitando...",
+        aiError: "Desculpe, encontrei um erro. Por favor, tente novamente.",
+        apiKeyMissing: "Por favor, configure sua chave de API do Gemini nas configurações primeiro."
       },
       modals: {
         pomodoroReview: {
@@ -132,8 +159,16 @@ const resources = {
           objectiveNamePlaceholder: "Ex: Refatorar Módulo de Autenticação",
           generateButton: "Gerar Plano com IA",
           generatingButton: "Gerando...",
+          generationPrompt: `Gere um plano para o seguinte objetivo: "{{objectiveName}}".
+    
+O plano deve conter:
+1.  **n1_definicao**: Uma definição clara e o escopo do objetivo. O que é e por que é importante? Quais são os critérios de sucesso?
+2.  **n2_passos**: Os passos conceituais macro para alcançar o objetivo. Liste de 3 a 5 passos principais.
+
+Retorne a resposta estritamente como um objeto JSON.`,
           errorPrefix: "Falha ao gerar o plano.",
           errorApiKey: "A chave da API não é válida. Verifique suas credenciais.",
+          errorApiKeyMissing: "Por favor, configure sua chave de API do Gemini nas configurações primeiro.",
           errorTimeout: "A requisição demorou muito. Tente novamente.",
           errorCheckConsole: "Verifique o console para mais detalhes.",
           errorUnknown: "Ocorreu um erro desconhecido.",
@@ -155,6 +190,15 @@ const resources = {
           description: "Seus dados (Objetivos, Tarefas e Métricas de Pomodoro) estão prontos. Salve este arquivo JSON para backup ou análise externa.",
           downloadButton: "Baixar Arquivo JSON",
           generating: "Gerando dados..."
+        },
+        apiKey: {
+            title: "Chave de API do Gemini",
+            description: "Para usar os recursos de IA, por favor, forneça sua própria chave de API do Google Gemini. Sua chave é armazenada de forma segura no armazenamento local do seu navegador e nunca é enviada para nós.",
+            getYourKey: "Obtenha sua chave no Google AI Studio",
+            inputLabel: "Sua Chave de API do Gemini",
+            inputPlaceholder: "Cole sua chave de API aqui",
+            saveButton: "Salvar Chave",
+            removeButton: "Remover Chave"
         }
       },
       notifications: {
