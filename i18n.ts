@@ -84,7 +84,7 @@ const resources = {
       }
     }
   },
-  pt: {
+  'pt-BR': {
     translation: {
       header: {
         focus: "Foco: {{objectiveName}} / {{taskName}}",
@@ -172,8 +172,8 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    supportedLngs: ['pt', 'en'],
-    fallbackLng: 'pt',
+    supportedLngs: ['pt-BR', 'en'],
+    fallbackLng: 'pt-BR',
     debug: false,
     interpolation: {
       escapeValue: false, // react already safes from xss

@@ -135,7 +135,7 @@ export default function App() {
             <div className="flex items-center gap-4">
                <div className="flex items-center gap-2 text-sm">
                   <button 
-                      onClick={() => i18n.changeLanguage('pt')} 
+                      onClick={() => i18n.changeLanguage('pt-BR')} 
                       className={`px-2 py-1 rounded transition-colors ${i18n.language.startsWith('pt') ? 'bg-emerald-600 text-white' : 'hover:bg-slate-700'}`}
                   >
                       PT
