@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
 
 interface ApiKeyState {
   apiKey: string | null;
@@ -7,15 +6,8 @@ interface ApiKeyState {
   clearApiKey: () => void;
 }
 
-export const useApiKeyStore = create<ApiKeyState>()(
-  persist(
-    (set) => ({
-      apiKey: null,
-      setApiKey: (key) => set({ apiKey: key }),
-      clearApiKey: () => set({ apiKey: null }),
-    }),
-    {
-      name: 'gemini-api-key-storage', // name of the item in the storage (must be unique)
-    }
-  )
-);
+export const useApiKeyStore = create<ApiKeyState>((set) => ({
+  apiKey: null,
+  setApiKey: (key) => set({ apiKey: key }),
+  clearApiKey: () => set({ apiKey: null }),
+}));
